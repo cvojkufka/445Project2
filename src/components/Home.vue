@@ -3,17 +3,26 @@
     <img :src="banner" alt="bannerLogo" />
     <h2 class="overlay-text">Welcome!</h2>
   </div>
+
   <div class="organisms">
     <button type="button" @click="alert('Clicked!')">
         <img :src="organisms" alt="Click me!">
     </button>
     <p>Organisms in your Area</p>
   </div>
+
+  <div class="map">
+    <button type="button" @click="alert('Clicked!')">
+        <img :src="map" alt="Click me!">
+    </button>
+    <p>Path Finding</p>
+  </div>
 </template>
 
 <script setup>
 import banner from '../assets/Banner.png'
 import organisms from '../assets/Organisms.png'
+import map from '../assets/Map.png'
 </script>
 
 <style>
@@ -48,6 +57,18 @@ import organisms from '../assets/Organisms.png'
 }
 
 .organisms img {
+    width: 200px;
+    height: auto;
+}
+
+/*Map Button*/
+.map {
+    position: absolute;
+    top: 290px;
+    right: 400px;
+}
+
+.map img {
     width: 200px;
     height: auto;
 }
