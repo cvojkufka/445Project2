@@ -55,28 +55,27 @@ import map from '../assets/Map.png'
 
 /*Organisms Button*/
 .organisms {
-    position: absolute;
-    top: 290px;
     left: 400px;
-}
-
-.organisms img {
-    width: 200px;
-    height: auto;
 }
 
 /*Map Button*/
 .map {
-    position: absolute;
-    top: 290px;
     right: 400px;
 }
 
-.map img {
+/*Button Placement and Sizing*/
+.map,
+.organisms {
+    position: absolute;
+    top: 270px;
+}
+
+.map img,
+.organisms img {
     width: 200px;
     height: auto;
 }
-
+/*Info Boxes*/
 .box {
   width: 215px;           /* Sets the BOX width */
   height: 100px;          /* Sets the BOX height */
@@ -85,5 +84,4 @@ import map from '../assets/Map.png'
   background-color: #a3a2a2; /* Background */
   text-align: center;
 }
-
 </style>
