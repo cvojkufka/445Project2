@@ -8,14 +8,18 @@
     <button type="button" @click="alert('Clicked!')">
         <img :src="organisms" alt="Click me!">
     </button>
-    <p>Organisms in your Area</p>
+    <div class="box">
+        <p>Organisms Around You</p>
+    </div>
   </div>
 
   <div class="map">
     <button type="button" @click="alert('Clicked!')">
         <img :src="map" alt="Click me!">
     </button>
-    <p>Path Finding</p>
+    <div class="box">
+        <p>Path Finding</p>
+    </div>
   </div>
 </template>
 
@@ -72,4 +76,14 @@ import map from '../assets/Map.png'
     width: 200px;
     height: auto;
 }
+
+.box {
+  width: 215px;           /* Sets the BOX width */
+  height: 100px;          /* Sets the BOX height */
+  padding: 20px;          /* Space inside the box (between content and border) */
+  margin: 0px;           /* Space outside the box from button */
+  background-color: #a3a2a2; /* Background */
+  text-align: center;
+}
+
 </style>
