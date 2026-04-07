@@ -5,7 +5,7 @@
   </div>
 
   <div class="organisms">
-    <button type="button" @click="alert('Clicked!')">
+    <button type="button" @click="goOrganisms">
         <img :src="organisms" alt="Click me!">
     </button>
     <div class="box">
@@ -27,6 +27,11 @@
 import banner from '../assets/Banner.png'
 import organisms from '../assets/Organisms.png'
 import map from '../assets/Map.png'
+
+defineProps ({
+  goOrganisms: Function,
+  goMap: Function
+})
 </script>
 
 <style>
@@ -53,12 +58,12 @@ import map from '../assets/Map.png'
   font-weight: bold;
 }
 
-/*Organisms Button*/
+/*Organisms Button from Screen*/
 .organisms {
     left: 400px;
 }
 
-/*Map Button*/
+/*Map Button from Screen*/
 .map {
     right: 400px;
 }
@@ -75,6 +80,7 @@ import map from '../assets/Map.png'
     width: 200px;
     height: auto;
 }
+
 /*Info Boxes*/
 .box {
   width: 215px;           /* Sets the BOX width */
