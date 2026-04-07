@@ -1,3 +1,44 @@
 <template>
-  <h2>Welcome!</h2>
+  <div class="header">
+    <img :src="banner" alt="bannerLogo" />
+    <h2 class="overlay-text">Welcome!</h2>
+  </div>
+  <div class="organisms">
+    <button type="button" onClick="alert('Clicked!')">
+        <img :src="organisms" alt="Click me!">
+    </button>
+  </div>
 </template>
+
+<script setup>
+import banner from '../assets/Banner.png'
+import organisms from '../assets/Organisms.png'
+</script>
+
+<style>
+/*Heading Banner And Text*/
+.header {
+    
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: fit-content;
+}
+
+.header img {
+  width: 100%;
+}
+
+.overlay-text {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+/*Organisms Button*/
+</style>
