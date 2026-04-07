@@ -4,9 +4,10 @@
     <h2 class="overlay-text">Welcome!</h2>
   </div>
   <div class="organisms">
-    <button type="button" onClick="alert('Clicked!')">
+    <button type="button" @click="alert('Clicked!')">
         <img :src="organisms" alt="Click me!">
     </button>
+    <p>Organisms in your Area</p>
   </div>
 </template>
 
@@ -17,8 +18,7 @@ import organisms from '../assets/Organisms.png'
 
 <style>
 /*Heading Banner And Text*/
-.header {
-    
+.header { 
   position: absolute;
   top: 0;
   left: 50%;
@@ -41,4 +41,14 @@ import organisms from '../assets/Organisms.png'
 }
 
 /*Organisms Button*/
+.organisms {
+    position: absolute;
+    top: 290px;
+    left: 400px;
+}
+
+.organisms img {
+    width: 200px;
+    height: auto;
+}
 </style>
