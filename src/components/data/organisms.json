@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "name": "Butterfly",
+    "species": "Lip Eater",
+    "image": "butterfly.jpg",
+    "description": "This butterfly likes to land on flowers."
+  },
+  {
+    "id": 2,
+    "name": "Flower",
+    "species": "The Pollinator",
+    "image": "flower.webp",
+    "description": "This flower lands on butterflies."
+  },
+  {
+    "id": 3,
+    "name": "Bird",
+    "species": "Lip Eater",
+    "image": "bird.png",
+    "description": "This butterfly likes to land on flowers."
+  }
+]

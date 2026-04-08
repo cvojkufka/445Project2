@@ -10,4 +10,10 @@
 defineProps({
   goHome: Function
 })
+
+const props = defineProps({
+  item: Object
+})
+
+const imagePath = new URL(`../assets/${props.item.image}`, import.meta.url).href
 </script>
