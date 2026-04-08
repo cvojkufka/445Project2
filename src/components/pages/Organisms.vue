@@ -1,10 +1,8 @@
 <template>
-  <div class="page">
-    <div class="top-section">
-      <h1>Organisms Page</h1>
-      <p>Select an organism to view what is around you.</p>
-      <button class="home-button" @click="goHome">Back to Home</button>
-    </div>
+  <div class="header">
+    <img :src="banner" alt="bannerLogo" />
+    <h2 class="overlay-text">Organisms!</h2>
+  </div>
 
     <div class="buttons">
       <button @click="goLearn(item)"
@@ -19,11 +17,11 @@
         </div>
       </button>
     </div>
-  </div>
 </template>
 
 <script setup>
 import data from '../data/organisms.json'
+import banner from '../../assets/Banner.png'
 
 defineProps({
   goHome: Function,
@@ -36,22 +34,30 @@ const getImagePath = (fileName) => {
 </script>
 
 <style>
-.page {
-  padding: 30px;
+.header { 
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: fit-content;
 }
 
-.top-section {
-  text-align: center;
-  margin-bottom: 40px;
+.header img {
+  width: 100%;
 }
 
-.home-button {
-  margin-top: 15px;
-  padding: 10px 16px;
-  cursor: pointer;
+.overlay-text {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
 }
 
 .buttons {
+  padding: 290px;
   display: flex;
   justify-content: center;
   gap: 30px;
