@@ -7,7 +7,7 @@
    />
 
   <Organisms
-    v-if="currentPage === 'organisms'"
+    v-else-if="currentPage === 'organisms'"
     :goHome="goHome"
    />
 </template>
