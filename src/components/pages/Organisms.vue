@@ -7,7 +7,7 @@
     </div>
 
     <div class="buttons">
-      <button
+      <button @click="goLearn(item)"
         v-for="item in data"
         :key="item.id"
         type="button"
@@ -26,7 +26,8 @@
 import data from '../data/organisms.json'
 
 defineProps({
-  goHome: Function
+  goHome: Function,
+  goLearn: Function
 })
 
 const getImagePath = (fileName) => {
