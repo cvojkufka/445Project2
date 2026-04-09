@@ -53,7 +53,7 @@ defineProps ({
   top: 20%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: white;
+  color: rgb(0, 0, 0);
   font-size: 2rem;
   font-weight: bold;
 }
@@ -89,5 +89,6 @@ defineProps ({
   margin: 0px;           /* Space outside the box from button */
   background-color: #a3a2a2; /* Background */
   text-align: center;
+  color: rgb(0, 0, 0);
 }
 </style>

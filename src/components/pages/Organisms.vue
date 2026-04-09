@@ -4,6 +4,12 @@
     <h2 class="overlay-text">Organisms!</h2>
   </div>
 
+  <div class="home">
+    <button @click="goHome">
+      <img :src="home" :alt="home">
+    </button>
+  </div>
+
     <div class="buttons">
       <button @click="goLearn(item)"
         v-for="item in data"
@@ -22,6 +28,7 @@
 <script setup>
 import data from '../data/organisms.json'
 import banner from '../../assets/Banner.png'
+import home from '../../assets/Home.png'
 
 defineProps({
   goHome: Function,
@@ -34,6 +41,7 @@ const getImagePath = (fileName) => {
 </script>
 
 <style>
+/*Banner*/
 .header { 
   position: absolute;
   top: 0;
@@ -51,11 +59,39 @@ const getImagePath = (fileName) => {
   top: 20%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: white;
+  color: rgb(255, 255, 255);
   font-size: 2rem;
   font-weight: bold;
 }
 
+/*Home Button*/
+.home {
+  display: flex;
+  align-items: center;
+
+  height: 100px;
+  width: 100px;
+
+  border-radius: 100px;
+  border: 2px solid black;
+  background: white;
+
+  overflow: hidden;
+  cursor: pointer;
+  justify-content: center;
+  top: 50px;
+  left: 150px;
+  position: absolute;
+}
+
+.home img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transform: scale(1.7);
+}
+
+/*Organism Buttons*/
 .buttons {
   padding: 290px;
   display: flex;
@@ -84,5 +120,6 @@ const getImagePath = (fileName) => {
   padding: 12px;
   margin-top: 0;
   text-align: center;
+  color: rgb(0, 0, 0);
 }
 </style>
