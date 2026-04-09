@@ -121,5 +121,6 @@ const getImagePath = (fileName) => {
   margin-top: 0;
   text-align: center;
   color: rgb(0, 0, 0);
+  font-size: 22px;
 }
 </style>

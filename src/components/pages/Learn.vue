@@ -9,6 +9,16 @@
       <img :src="home" :alt="home">
     </button>
   </div>
+
+  <div class="card">
+    <img :src="getImagePath(item.image)" :alt="item.name" />
+    <div class="text">
+        <p>Name: {{ item.name }}
+        <br>Species: {{ item.species }}
+        <br>Description: {{ item.description }}
+        </p>
+    </div>
+  </div>
 </template>
 
 <script setup>
@@ -16,8 +26,13 @@ import banner from '../../assets/Banner.png'
 import home from '../../assets/Home.png'
 
     defineProps ({
-        goHome: Function
+        goHome: Function,
+        item: Object
     })
+
+const getImagePath = (fileName) => {
+  return new URL(`../../assets/${fileName}`, import.meta.url).href
+}
 </script>
 
 <style>
@@ -69,5 +84,34 @@ import home from '../../assets/Home.png'
   height: auto;
   object-fit: cover;
   transform: scale(1.7);
+}
+
+/*Card Layout*/
+.card {
+  display: flex;
+  align-items: stretch;
+  gap: 0px;
+
+  position: absolute;
+  top: 320px;
+  left: 500px;
+  transform: scale(1.5);
+}
+
+.text {
+  width: 400px;
+  height: 300px;
+  padding: 20px;
+  background-color: #a3a2a2;
+
+  display: flex;
+  text-align: left;
+  color: rgb(0, 0, 0);
+}
+
+.card img {
+  height: 300px;
+  width: auto;
+  object-fit: cover;
 }
 </style>
