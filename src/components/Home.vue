@@ -14,7 +14,7 @@
   </div>
 
   <div class="map">
-    <button type="button" @click="alert('Clicked!')">
+    <button type="button" @click="goMap">
         <img :src="map" alt="Click me!">
     </button>
     <div class="box">
@@ -30,11 +30,11 @@ import map from '../assets/Map.png'
 
 defineProps ({
   goOrganisms: Function,
-  goMap: Function
+  goMap: Function,
 })
 </script>
 
-<style>
+<style scoped>
 /*Heading Banner And Text*/
 .header { 
   position: absolute;

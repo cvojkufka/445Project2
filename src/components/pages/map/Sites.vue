@@ -1,0 +1,143 @@
+<template>
+    <div class="header">
+        <img :src="banner" alt="bannerLogo" />
+        <h2 class="overlay-text">Nearby Sites</h2>
+    </div>
+
+    <div class="back-to-map">
+        <button type="button" @click="goMap">Back to Map</button>
+    </div>
+
+    <div class="sites-grid">
+        <div v-for="site in sites" :key="site.id" class="site-card">
+            <img :src="site.image" :alt="site.name" />
+            <button type="button" @click="goSiteDetails(site)">{{ site.name }} details</button>
+        </div>
+    </div>
+
+</template>
+
+<script setup>
+import banner from '../../../assets/Banner.png'
+import site1 from '../../../assets/site1.jpeg'
+import site2 from '../../../assets/site2.jpg'
+import site3 from '../../../assets/site3.jpg'
+import site4 from '../../../assets/site4.jpg'
+
+const sites = [
+    {
+        id: 1,
+        name: 'site1',
+        image: site1,
+        accessibility: ['Wheelchair-friendly path', 'Accessible parking'],
+        amenities: ['Benches', 'Water fountain', 'Restroom nearby'],
+        nearbySites: ['site2', 'site3'],
+    },
+    {
+        id: 2,
+        name: 'site2',
+        image: site2,
+        accessibility: ['Flat trail entry', 'Handrail support points'],
+        amenities: ['Picnic tables', 'Shade area'],
+        nearbySites: ['site1', 'site4'],
+    },
+    {
+        id: 3,
+        name: 'site3',
+        image: site3,
+        accessibility: ['Low-slope approach', 'Wide viewing space'],
+        amenities: ['Bike rack', 'Information sign'],
+        nearbySites: ['site1', 'site4'],
+    },
+    {
+        id: 4,
+        name: 'site4',
+        image: site4,
+        accessibility: ['Step-free route', 'Accessible drop-off zone'],
+        amenities: ['Rest area', 'Trail map kiosk'],
+        nearbySites: ['site2', 'site3'],
+    },
+]
+
+defineProps({
+    goMap: Function,
+    goSiteDetails: Function,
+})
+</script>
+
+<style scoped>
+.header {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(70vw, 650px);
+}
+
+.header img {
+    width: 100%;
+}
+
+.overlay-text {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(255, 255, 255);
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.back-to-map {
+    display: flex;
+    justify-content: center;
+    margin-top: 170px;
+    margin-bottom: 20px;
+}
+
+.back-to-map button {
+    border: none;
+    border-radius: 999px;
+    background-color: rgba(48, 132, 41, 1);
+    color: white;
+    padding: 0.5rem 1.4rem;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.sites-grid {
+    margin-top: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(240px, 1fr));
+    gap: 30px 80px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.site-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.site-card img {
+    width: 100%;
+    max-width: 360px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.site-card button {
+    margin-top: 12px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 999px;
+    background-color: rgba(48, 132, 41, 1);
+    color: white;
+    padding: 0.6rem 1.4rem;
+    cursor: pointer;
+}
+
+</style>

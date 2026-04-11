@@ -22,8 +22,8 @@
 </template>
 
 <script setup>
-import banner from '../../assets/Banner.png'
-import home from '../../assets/Home.png'
+import banner from '../../../assets/Banner.png'
+import home from '../../../assets/Home.png'
 
     defineProps ({
         goHome: Function,
@@ -31,11 +31,11 @@ import home from '../../assets/Home.png'
     })
 
 const getImagePath = (fileName) => {
-  return new URL(`../../assets/${fileName}`, import.meta.url).href
+  return new URL(`../../../assets/${fileName}`, import.meta.url).href
 }
 </script>
 
-<style>
+<style scoped>
 /*Banner*/
 .header { 
   position: absolute;
