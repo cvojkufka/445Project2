@@ -60,12 +60,12 @@ defineProps ({
 
 /*Organisms Button from Screen*/
 .organisms {
-    left: 400px;
+    left: 300px;
 }
 
 /*Map Button from Screen*/
 .map {
-    right: 400px;
+    right: 300px;
 }
 
 /*Button Placement and Sizing*/
