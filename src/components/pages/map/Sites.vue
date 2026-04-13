@@ -72,6 +72,7 @@ defineProps({
     left: 50%;
     transform: translateX(-50%);
     width: min(70vw, 650px);
+    pointer-events: none;
 }
 
 .header img {
@@ -93,6 +94,8 @@ defineProps({
     justify-content: center;
     margin-top: 170px;
     margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
 }
 
 .back-to-map button {
@@ -103,6 +106,8 @@ defineProps({
     padding: 0.5rem 1.4rem;
     font-size: 1rem;
     cursor: pointer;
+    position: relative;
+    z-index: 3;
 }
 
 .sites-grid {
