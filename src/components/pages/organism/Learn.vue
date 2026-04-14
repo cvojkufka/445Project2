@@ -10,6 +10,10 @@
     </button>
   </div>
 
+  <div class="back-to-organisms">
+    <button type="button" @click="goOrganisms">Back to Organisms</button>
+  </div>
+
   <div class="card">
     <img :src="getImagePath(item.image)" :alt="item.name" />
     <div class="text">
@@ -27,6 +31,7 @@ import home from '../../../assets/Home.png'
 
     defineProps ({
         goHome: Function,
+      goOrganisms: Function,
         item: Object
     })
 
@@ -84,6 +89,25 @@ const getImagePath = (fileName) => {
   height: auto;
   object-fit: cover;
   transform: scale(1.7);
+}
+
+.back-to-organisms {
+  display: flex;
+  justify-content: center;
+  margin-top: 180px;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.back-to-organisms button {
+  border: none;
+  border-radius: 999px;
+  background-color: rgba(48, 132, 41, 1);
+  color: white;
+  padding: 0.5rem 1.4rem;
+  font-size: 1rem;
+  cursor: pointer;
 }
 
 /*Card Layout*/

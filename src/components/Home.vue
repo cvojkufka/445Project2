@@ -4,21 +4,30 @@
     <h2 class="overlay-text">Welcome!</h2>
   </div>
 
-  <div class="organisms">
-    <button type="button" @click="goOrganisms">
-        <img :src="organisms" alt="Click me!">
-    </button>
-    <div class="box">
-        <p>Organisms Around You</p>
+  <div class="welcome-layout">
+    <div class="organisms">
+      <button type="button" @click="goOrganisms">
+          <img :src="organisms" alt="Click me!">
+      </button>
+      <div class="box">
+          <p>Organisms Around You</p>
+      </div>
     </div>
-  </div>
 
-  <div class="map">
-    <button type="button" @click="goMap">
-        <img :src="map" alt="Click me!">
-    </button>
-    <div class="box">
-        <p>Path Finding</p>
+    <div class="welcome-message">
+      <p>
+        Welcome to our site! Explore the organisms around us on the left,
+        or use the map on the right to find paths and nearby locations.
+      </p>
+    </div>
+
+    <div class="map">
+      <button type="button" @click="goMap">
+          <img :src="map" alt="Click me!">
+      </button>
+      <div class="box">
+          <p>Path Finding</p>
+      </div>
     </div>
   </div>
 </template>
@@ -58,27 +67,37 @@ defineProps ({
   font-weight: bold;
 }
 
-/*Organisms Button from Screen*/
-.organisms {
-    left: 300px;
-}
-
-/*Map Button from Screen*/
-.map {
-    right: 300px;
-}
-
-/*Button Placement and Sizing*/
-.map,
-.organisms {
-    position: absolute;
-    top: 270px;
+.welcome-layout {
+  margin-top: 22rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 60px;
 }
 
 .map img,
 .organisms img {
     width: 200px;
     height: auto;
+}
+
+.map,
+.organisms {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.welcome-message {
+  width: min(30vw, 350px);
+  min-height: 250px;
+  padding: 20px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  font-size: 1.5rem;
+  line-height: 1.5;
 }
 
 /*Info Boxes*/

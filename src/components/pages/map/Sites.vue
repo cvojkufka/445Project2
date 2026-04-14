@@ -10,8 +10,10 @@
 
     <div class="sites-grid">
         <div v-for="site in sites" :key="site.id" class="site-card">
-            <img :src="site.image" :alt="site.name" />
-            <button type="button" @click="goSiteDetails(site)">{{ site.name }} details</button>
+            <button type="button" class="image-button" @click="goSiteDetails(site)">
+                <img :src="site.image" :alt="site.name" />
+            </button>
+            <button type="button" class="detail-button" @click="goSiteDetails(site)">{{ site.name }} details</button>
         </div>
     </div>
 
@@ -126,6 +128,14 @@ defineProps({
     align-items: center;
 }
 
+.image-button {
+    margin-top: 0;
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
 .site-card img {
     width: 100%;
     max-width: 360px;
@@ -134,7 +144,7 @@ defineProps({
     border-radius: 12px;
 }
 
-.site-card button {
+.detail-button {
     margin-top: 12px;
     font-size: 1.2rem;
     border: none;

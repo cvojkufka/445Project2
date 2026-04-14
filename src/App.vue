@@ -22,6 +22,7 @@
    v-else-if="currentPage === 'learn'"
    :item="selectedItem"
    :goHome="goHome"
+  :goOrganisms="goOrganisms"
    />
 
    <Sites
