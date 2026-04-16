@@ -1,0 +1,72 @@
+[
+      {
+        "id": 1,
+        "name": "Sugar Maple",
+        "scientific_name": "Acer saccharum",
+        "type": "Tree",
+        "image": "Sugar maple.jpeg"
+      },
+      {
+        "id": 2,
+        "name": "Shagbark Hickory",
+        "scientific_name": "Carya ovata",
+        "type": "Tree",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/7/76/Carya_ovata.jpg"
+      },
+      {
+        "id": 3,
+        "name": "White Pine",
+        "scientific_name": "Pinus strobus",
+        "type": "Tree",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/4/40/Pinus_strobus.jpg"
+      },
+      {
+        "id": 4,
+        "name": "Ginseng",
+        "scientific_name": "Panax quinquefolius",
+        "type": "Herb",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Panax_quinquefolius.jpg"
+      },
+      {
+        "id": 5,
+        "name": "Pink Turtlehead",
+        "scientific_name": "Chelone obliqua",
+        "type": "Flower",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Chelone_obliqua.jpg"
+      },
+      {
+        "id": 6,
+        "name": "Big Bluestem",
+        "scientific_name": "Andropogon gerardii",
+        "type": "Grass",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Andropogon_gerardii.jpg"
+      },
+      {
+        "id": 7,
+        "name": "Switchgrass",
+        "scientific_name": "Panicum virgatum",
+        "type": "Grass",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Panicum_virgatum.jpg"
+      },
+      {
+        "id": 8,
+        "name": "Common Milkweed",
+        "scientific_name": "Asclepias syriaca",
+        "type": "Flower",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Asclepias_syriaca.jpg"
+      },
+      {
+        "id": 9,
+        "name": "Black-eyed Susan",
+        "scientific_name": "Rudbeckia hirta",
+        "type": "Flower",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Rudbeckia_hirta.jpg"
+      },
+      {
+        "id": 10,
+        "name": "Purple Coneflower",
+        "scientific_name": "Echinacea purpurea",
+        "type": "Flower",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Echinacea_purpurea.jpg"
+      }
+]

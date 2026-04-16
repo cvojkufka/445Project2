@@ -10,9 +10,18 @@
     </button>
   </div>
 
+  <div class="search-container">
+    <input 
+      v-model="searchQuery"
+      type="text"
+      placeholder="Search for an organism..."
+      class="search-input"
+    />
+  </div>
+
     <div class="buttons">
       <button @click="goLearn(item)"
-        v-for="item in data"
+        v-for="item in filteredData"
         :key="item.id"
         type="button"
         class="organism-button"
@@ -26,7 +35,8 @@
 </template>
 
 <script setup>
-import data from '../../data/organisms.json'
+import { ref, computed } from 'vue'
+import data from '../../data/plantsAtCP.json'
 import banner from '../../../assets/Banner.png'
 import home from '../../../assets/Home.png'
 
@@ -34,6 +44,17 @@ defineProps({
   goHome: Function,
   goLearn: Function
 })
+
+const searchQuery = ref('')
+
+const filteredData = computed(() => {
+  if (!searchQuery.value) return data
+
+  return data.filter(item =>
+    item.type.toLowerCase().includes(searchQuery.value.toLowerCase())
+  )
+})
+
 
 const getImagePath = (fileName) => {
   return new URL(`../../../assets/${fileName}`, import.meta.url).href
@@ -93,7 +114,7 @@ const getImagePath = (fileName) => {
 
 /*Organism Buttons*/
 .buttons {
-  padding: 290px;
+  padding: 100px;
   display: flex;
   justify-content: center;
   gap: 30px;
@@ -122,5 +143,30 @@ const getImagePath = (fileName) => {
   text-align: center;
   color: rgb(0, 0, 0);
   font-size: 22px;
+}
+
+/*Search Bar*/
+.search-container {
+  margin-top: 200px;
+  display: flex;
+  justify-content: center;
+}
+
+.search-input {
+  width: 300px;
+  padding: 12px 16px;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 16px;
+  
+
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: 0.2s ease;
+}
+
+.search-input:focus {
+  border-color: #4CAF50;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 </style>

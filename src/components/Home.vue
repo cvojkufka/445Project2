@@ -62,7 +62,7 @@ defineProps ({
   top: 20%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
   font-size: 2rem;
   font-weight: bold;
 }
