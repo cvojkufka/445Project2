@@ -46,51 +46,49 @@ import { computed, ref } from 'vue'
 import banner from '../../../assets/Banner.png'
 import home from '../../../assets/Home.png'
 import map from '../../../assets/ConnorPraireMap.png'
-import site1 from '../../../assets/site1.jpeg'
-import site2 from '../../../assets/site2.jpg'
-import site3 from '../../../assets/site3.jpg'
-import site4 from '../../../assets/site4.jpg'
+import site1 from '../../../assets/NW.jpeg'
+import site2 from '../../../assets/NE.jpeg'
+import site3 from '../../../assets/SW.jpeg'
+import site4 from '../../../assets/SE.jpeg'
 
 const sites = [
     {
         id: 1,
-        name: 'site1',
+        name: 'Northwest Corner',
         image: site1,
         focusX: 26,
         focusY: 33,
         accessibility: ['Wheelchair-friendly path', 'Accessible parking'],
         amenities: ['Benches', 'Water fountain', 'Restroom nearby'],
-        nearbySites: ['site2', 'site3'],
+        nearbySites: ['William Conner House', 'Lenape Camp', 'Prairietown'],
     },
     {
         id: 2,
-        name: 'site2',
+        name: 'Northeast Corner',
         image: site2,
         focusX: 64,
         focusY: 34,
         accessibility: ['Flat trail entry', 'Handrail support points'],
         amenities: ['Picnic tables', 'Shade area'],
-        nearbySites: ['site1', 'site4'],
     },
     {
         id: 3,
-        name: 'site3',
+        name: 'Southwest Corner',
         image: site3,
         focusX: 31,
         focusY: 67,
         accessibility: ['Low-slope approach', 'Wide viewing space'],
         amenities: ['Bike rack', 'Information sign'],
-        nearbySites: ['site1', 'site4'],
+        nearbySites: ['Promised Land as Proving Ground', 'Muesuem Experience Center', '1859 Balloon Voyage', 'Animal Encounter'],
     },
     {
         id: 4,
-        name: 'site4',
+        name: 'Southeast Corner',
         image: site4,
         focusX: 70,
         focusY: 68,
         accessibility: ['Step-free route', 'Accessible drop-off zone'],
-        amenities: ['Rest area', 'Trail map kiosk'],
-        nearbySites: ['site2', 'site3'],
+        amenities: ['Rest area', 'Trail map kiosk', 'Parking'],
     },
 ]
 
