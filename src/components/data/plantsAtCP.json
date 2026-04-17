@@ -1,72 +1,114 @@
 [
-      {
-        "id": 1,
-        "name": "Sugar Maple",
-        "scientific_name": "Acer saccharum",
-        "type": "Tree",
-        "image": "Sugar maple.jpeg"
-      },
-      {
-        "id": 2,
-        "name": "Shagbark Hickory",
-        "scientific_name": "Carya ovata",
-        "type": "Tree",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/7/76/Carya_ovata.jpg"
-      },
-      {
-        "id": 3,
-        "name": "White Pine",
-        "scientific_name": "Pinus strobus",
-        "type": "Tree",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/4/40/Pinus_strobus.jpg"
-      },
-      {
-        "id": 4,
-        "name": "Ginseng",
-        "scientific_name": "Panax quinquefolius",
-        "type": "Herb",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Panax_quinquefolius.jpg"
-      },
-      {
-        "id": 5,
-        "name": "Pink Turtlehead",
-        "scientific_name": "Chelone obliqua",
-        "type": "Flower",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Chelone_obliqua.jpg"
-      },
-      {
-        "id": 6,
-        "name": "Big Bluestem",
-        "scientific_name": "Andropogon gerardii",
-        "type": "Grass",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Andropogon_gerardii.jpg"
-      },
-      {
-        "id": 7,
-        "name": "Switchgrass",
-        "scientific_name": "Panicum virgatum",
-        "type": "Grass",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Panicum_virgatum.jpg"
-      },
-      {
-        "id": 8,
-        "name": "Common Milkweed",
-        "scientific_name": "Asclepias syriaca",
-        "type": "Flower",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Asclepias_syriaca.jpg"
-      },
-      {
-        "id": 9,
-        "name": "Black-eyed Susan",
-        "scientific_name": "Rudbeckia hirta",
-        "type": "Flower",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Rudbeckia_hirta.jpg"
-      },
-      {
-        "id": 10,
-        "name": "Purple Coneflower",
-        "scientific_name": "Echinacea purpurea",
-        "type": "Flower",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Echinacea_purpurea.jpg"
-      }
-]
+    {
+      "id": 1,
+      "name": "Sugar Maple",
+      "scientific_name": "Acer saccharum",
+      "type": "Tree",
+      "image": "Sugar maple.jpeg",
+      "description": "A tall deciduous tree known for its brilliant orange and red fall leaves. Sugar Maple is famous for producing sap used to make maple syrup and provides dense shade in forests and parks."
+    },
+    {
+      "id": 2,
+      "name": "Shagbark Hickory",
+      "scientific_name": "Carya ovata",
+      "type": "Tree",
+      "image": "Shagbark hickory.jpeg",
+      "description": "A large hardwood tree recognized by its peeling shaggy bark. It produces edible nuts that are important food sources for wildlife such as squirrels, deer, and birds."
+    },
+    {
+      "id": 3,
+      "name": "White Pine",
+      "scientific_name": "Pinus strobus",
+      "type": "Tree",
+      "image": "White pine.jpeg",
+      "description": "A fast-growing evergreen tree with soft blue-green needles grouped in bundles of five. White Pine is often used for timber, windbreaks, and habitat for birds."
+    },
+    {
+      "id": 4,
+      "name": "Ginseng",
+      "scientific_name": "Panax quinquefolius",
+      "type": "Herb",
+      "image": "Ginseng.jpeg",
+      "description": "A slow-growing woodland herb valued for its forked root, which has been used in traditional medicine for centuries. It grows best in shaded forests with rich soil."
+    },
+    {
+      "id": 5,
+      "name": "Pink Turtlehead",
+      "scientific_name": "Chelone obliqua",
+      "type": "Flower",
+      "image": "Pink turtlehead.jpeg",
+      "description": "A native perennial flower with pink blossoms shaped like a turtle's head. It thrives in moist soils and attracts bees, butterflies, and hummingbirds."
+    },
+    {
+      "id": 6,
+      "name": "Big Bluestem",
+      "scientific_name": "Andropogon gerardii",
+      "type": "Grass",
+      "image": "Big bluestem.jpeg",
+      "description": "A tall prairie grass often called the king of the prairie. It can grow over six feet tall and provides shelter and food for many prairie animals."
+    },
+    {
+      "id": 7,
+      "name": "Switchgrass",
+      "scientific_name": "Panicum virgatum",
+      "type": "Grass",
+      "image": "Switchgrass.jpeg",
+      "description": "A hardy native grass with upright stems and airy seed heads. Switchgrass is valuable for erosion control, wildlife habitat, and renewable biofuel research."
+    },
+    {
+      "id": 8,
+      "name": "Common Milkweed",
+      "scientific_name": "Asclepias syriaca",
+      "type": "Flower",
+      "image": "common milkweed.jpeg",
+      "description": "A flowering plant with clusters of pink-purple blooms and milky sap. It is one of the most important host plants for Monarch butterfly caterpillars."
+    },
+    {
+      "id": 9,
+      "name": "Black-eyed Susan",
+      "scientific_name": "Rudbeckia hirta",
+      "type": "Flower",
+      "image": "Blackeyed susan.jpeg",
+      "description": "A cheerful wildflower with bright yellow petals surrounding a dark brown center. It blooms in summer and attracts bees, butterflies, and other pollinators."
+    },
+    {
+      "id": 10,
+      "name": "Purple Coneflower",
+      "scientific_name": "Echinacea purpurea",
+      "type": "Flower",
+      "image": "Purple coneflower.jpeg",
+      "description": "A native prairie flower with purple petals and a spiky orange cone center. It is popular in gardens and often associated with herbal remedies."
+    },
+    {
+      "id": 11,
+      "name": "Longhorn Cattle",
+      "scientific_name": "Bos taurus",
+      "type": "Animal",
+      "image": "Longhorn cattle.jpeg",
+      "description": "A hardy breed of cattle known for their long curved horns and strong grazing ability. Longhorn cattle are valued for conservation grazing and historical significance."
+    },
+    {
+      "id": 12,
+      "name": "Ossabaw Island Hog",
+      "scientific_name": "Sus scrofa domesticus",
+      "type": "Animal",
+      "image": "Ossabaw island hog.jpeg",
+      "description": "A rare heritage breed descended from pigs brought to North America centuries ago. These hogs are known for their adaptability and ability to forage naturally."
+    },
+    {
+      "id": 13,
+      "name": "Tunis Sheep",
+      "scientific_name": "Ovis aries",
+      "type": "Animal",
+      "image": "Tunis sheep.jpeg",
+      "description": "A medium-sized heritage sheep breed recognized by its reddish face and legs. Tunis sheep are calm animals prized for meat, wool, and easy handling."
+    },
+    {
+      "id": 14,
+      "name": "Arapawa Goat",
+      "scientific_name": "Capra aegagrus hircus",
+      "type": "Animal",
+      "image": "Arapawa goat.jpeg",
+      "description": "A rare goat breed believed to descend from old English goats. Arapawa goats are agile browsers with distinctive horns and are valued for genetic conservation."
+    }
+  ]

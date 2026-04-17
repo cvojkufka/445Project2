@@ -51,7 +51,9 @@ const filteredData = computed(() => {
   if (!searchQuery.value) return data
 
   return data.filter(item =>
-    item.type.toLowerCase().includes(searchQuery.value.toLowerCase())
+    item.type.toLowerCase().includes(searchQuery.value.toLowerCase())||
+    item.name.toLowerCase().includes(searchQuery.value.toLowerCase())||
+    item.description.toLowerCase().includes(searchQuery.value.toLowerCase())
   )
 })
 

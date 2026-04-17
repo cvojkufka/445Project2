@@ -18,7 +18,7 @@
     <img :src="getImagePath(item.image)" :alt="item.name" />
     <div class="text">
         <p>Name: {{ item.name }}
-        <br>Species: {{ item.species }}
+        <br>Scientific Name: {{ item.scientific_name }}</br>
         <br>Description: {{ item.description }}
         </p>
     </div>
@@ -118,24 +118,25 @@ const getImagePath = (fileName) => {
 
   position: absolute;
   top: 320px;
-  left: 500px;
+  left: 420px;
   transform: scale(1.5);
 }
 
 .text {
-  width: 400px;
+  width: 300px;
   height: 300px;
   padding: 20px;
   background-color: #a3a2a2;
 
   display: flex;
+  line-height: 1.4;
   text-align: left;
   color: rgb(0, 0, 0);
 }
 
 .card img {
   height: 300px;
-  width: auto;
+  width: 300px;
   object-fit: cover;
 }
 </style>
