@@ -15,7 +15,7 @@
   <Map
     v-else-if="currentPage === 'map'"
     :goHome="goHome"
-    :goSites="goSites"
+    :goSiteDetails="goSiteDetails"
   />
 
    <Learn 
@@ -25,16 +25,10 @@
   :goOrganisms="goOrganisms"
    />
 
-   <Sites
-    v-else-if="currentPage === 'sites'"
-   :goMap="goMap"
-    :goSiteDetails="goSiteDetails"
-    />
-
     <SiteDetail
     v-else-if="currentPage === 'site-detail'"
     :site="selectedSite"
-    :goSites="goSites"
+   :goMap="goMap"
    />
 
 </template>
@@ -45,7 +39,6 @@ import Home from './components/Home.vue'
 import Organisms from './components/pages/organism/Organisms.vue'
 import Learn from './components/pages/organism/Learn.vue'
 import Map from './components/pages/map/Map.vue'
-import Sites from './components/pages/map/Sites.vue'
 import SiteDetail from './components/pages/map/SiteDetail.vue'
 
 const currentPage = ref('home')
@@ -67,10 +60,6 @@ const goMap = () => {
 const goLearn = (item) => {
   selectedItem.value = item
   currentPage.value = 'learn'
-}
-
-const goSites = () => {
-  currentPage.value = 'sites'
 }
 
 const goSiteDetails = (site) => {

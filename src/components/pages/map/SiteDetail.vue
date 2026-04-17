@@ -5,7 +5,7 @@
     </div>
 
     <div class="back-row">
-        <button type="button" @click="goSites">Back to Nearby Sites</button>
+        <button type="button" @click="goMap">Back to Map</button>
     </div>
 
     <div v-if="site" class="content">
@@ -55,7 +55,7 @@ import nearbyIcon from '../../../assets/nearby.png'
 
 defineProps({
     site: Object,
-    goSites: Function,
+    goMap: Function,
 })
 </script>
 
