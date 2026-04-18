@@ -36,7 +36,7 @@ import home from '../../../assets/Home.png'
     })
 
 const getImagePath = (fileName) => {
-  return new URL(`../../../assets/${fileName}`, import.meta.url).href
+  return new URL(`../../../images/${fileName}`, import.meta.url).href
 }
 </script>
 

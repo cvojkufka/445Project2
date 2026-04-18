@@ -59,7 +59,7 @@ const filteredData = computed(() => {
 
 
 const getImagePath = (fileName) => {
-  return new URL(`../../../assets/${fileName}`, import.meta.url).href
+  return new URL(`../../../images/${fileName}`, import.meta.url).href
 }
 </script>
 
