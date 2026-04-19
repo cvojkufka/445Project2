@@ -1,8 +1,5 @@
 <template>
-  <div class="header">
-    <img :src="banner" alt="bannerLogo" />
-    <h2 class="overlay-text">Welcome!</h2>
-  </div>
+  <Overlay />
 
   <div class="welcome-layout">
     <div class="organisms">
@@ -36,6 +33,7 @@
 import banner from '../assets/Banner.png'
 import organisms from '../assets/Organisms.png'
 import map from '../assets/Map.png'
+import Overlay from './overlay/Overlay.vue'
 
 defineProps ({
   goOrganisms: Function,
@@ -45,13 +43,7 @@ defineProps ({
 
 <style scoped>
 /*Heading Banner And Text*/
-.header { 
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: fit-content;
-}
+
 
 .header img {
   width: 100%;
