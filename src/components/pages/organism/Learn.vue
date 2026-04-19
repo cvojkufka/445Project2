@@ -1,17 +1,23 @@
 <template>
-    <div class="header">
-    <img :src="banner" alt="bannerLogo" />
-    <h2 class="overlay-text">Learn!</h2>
-  </div>
+    <Overlay 
+    title="Learn!"
+    :speechText="`Wow! A ${item.name}!`"
+  />
 
-  <div class="home">
-    <button @click="goHome">
-      <img :src="home" :alt="home">
+  <div class="content">
+    <button class="back-sign" @click="goOrganisms">
+    <div class="sign-wrapper">
+      <img :src="sign" alt="back-sign"/>
+      <span class="sign-text">Back To Organisms</span>
+    </div>
     </button>
-  </div>
 
-  <div class="back-to-organisms">
-    <button type="button" @click="goOrganisms">Back to Organisms</button>
+    <button class="home-sign" @click="goHome">
+      <div class="sign-wrapper">
+        <img :src="sign" alt="home-sign"/>
+        <span class="sign-text">Home</span>
+      </div>
+    </button>
   </div>
 
   <div class="card">
@@ -26,12 +32,12 @@
 </template>
 
 <script setup>
-import banner from '../../../assets/Banner.png'
-import home from '../../../assets/Home.png'
+import Overlay from '../../overlay/Overlay.vue'
+import sign from '../../../assets/Sign.png'
 
     defineProps ({
         goHome: Function,
-      goOrganisms: Function,
+        goOrganisms: Function,
         item: Object
     })
 
@@ -41,73 +47,62 @@ const getImagePath = (fileName) => {
 </script>
 
 <style scoped>
-/*Banner*/
-.header { 
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: fit-content;
-}
-
-.header img {
+.content {
+  position: relative;
+  z-index: 5;
   width: 100%;
+  height: 100vh;
 }
 
-.overlay-text {
+.back-sign,
+.home-sign {
   position: absolute;
-  top: 20%;
+  top: -15%;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.back-sign {
+  left: 1%;
+}
+
+.home-sign {
+  right: 1%;
+}
+
+.back-sign img,
+.home-sign img {
+  width: 420px;
+}
+
+.home-sign img {
+  transform: scaleX(-1);
+}
+
+.sign-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.sign-wrapper img {
+  width: 420px;
+  display: block;
+}
+
+.sign-text {
+  position: absolute;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: rgb(255, 255, 255);
-  font-size: 2rem;
-  font-weight: bold;
-}
 
-/*Home Button*/
-.home {
-  display: flex;
-  align-items: center;
-
-  height: 100px;
-  width: 100px;
-
-  border-radius: 100px;
-  border: 2px solid black;
-  background: white;
-
-  overflow: hidden;
-  cursor: pointer;
-  justify-content: center;
-  top: 50px;
-  left: 150px;
-  position: absolute;
-}
-
-.home img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  transform: scale(1.7);
-}
-
-.back-to-organisms {
-  display: flex;
-  justify-content: center;
-  margin-top: 180px;
-  margin-bottom: 20px;
-  position: relative;
-  z-index: 2;
-}
-
-.back-to-organisms button {
-  border: none;
-  border-radius: 999px;
-  background-color: rgba(48, 132, 41, 1);
   color: white;
-  padding: 0.5rem 1.4rem;
-  font-size: 1rem;
-  cursor: pointer;
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+
+  pointer-events: none;
 }
 
 /*Card Layout*/
