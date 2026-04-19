@@ -1,39 +1,29 @@
 <template>
-  <Overlay />
+  <Overlay 
+    title="Welcome!"
+    speechText="Hi! Click on one of the signs to get started!"
+  />
 
-  <div class="welcome-layout">
-    <div class="organisms">
-      <button type="button" @click="goOrganisms">
-          <img :src="organisms" alt="Click me!">
-      </button>
-      <div class="box">
-          <p>Organisms Around You</p>
+  <div class="content">
+    <button class="left-sign" @click="goOrganisms">
+      <div class="sign-wrapper">
+        <img :src="sign" alt="sign button" />
+        <span class="sign-text">Organisms 10m</span>
       </div>
-    </div>
+    </button>
 
-    <div class="welcome-message">
-      <p>
-        Welcome to our site! Explore the organisms around us on the left,
-        or use the map on the right to find paths and nearby locations.
-      </p>
-    </div>
-
-    <div class="map">
-      <button type="button" @click="goMap">
-          <img :src="map" alt="Click me!">
-      </button>
-      <div class="box">
-          <p>Path Finding</p>
+    <button class="right-sign" @click="goMap">
+      <div class="sign-wrapper">
+        <img :src="sign" alt="sign button" />
+        <span class="sign-text">Map 25m</span>
       </div>
-    </div>
+    </button>
   </div>
 </template>
 
 <script setup>
-import banner from '../assets/Banner.png'
-import organisms from '../assets/Organisms.png'
-import map from '../assets/Map.png'
 import Overlay from './overlay/Overlay.vue'
+import sign from '../assets/Sign.png'
 
 defineProps ({
   goOrganisms: Function,
@@ -42,64 +32,62 @@ defineProps ({
 </script>
 
 <style scoped>
-/*Heading Banner And Text*/
-
-
-.header img {
+.content {
+  position: relative;
+  z-index: 5;
   width: 100%;
+  height: 100vh;
 }
 
-.overlay-text {
+.left-sign,
+.right-sign {
   position: absolute;
-  top: 20%;
+  top: 15%;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.left-sign {
+  left: 15%;
+}
+
+.right-sign {
+  right: 15%;
+}
+
+.left-sign img,
+.right-sign img {
+  width: 420px;
+}
+
+.right-sign img {
+  transform: scaleX(-1);
+}
+
+.sign-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.sign-wrapper img {
+  width: 420px;
+  display: block;
+}
+
+
+.sign-text {
+  position: absolute;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: rgb(255, 255, 255);
-  font-size: 2rem;
+
+  color: white;
+  font-size: 22px;
   font-weight: bold;
-}
-
-.welcome-layout {
-  margin-top: 22rem;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 60px;
-}
-
-.map img,
-.organisms img {
-    width: 200px;
-    height: auto;
-}
-
-.map,
-.organisms {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.welcome-message {
-  width: min(30vw, 350px);
-  min-height: 250px;
-  padding: 20px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
   text-align: center;
-  font-size: 1.5rem;
-  line-height: 1.5;
-}
 
-/*Info Boxes*/
-.box {
-  width: 215px;           /* Sets the BOX width */
-  height: 100px;          /* Sets the BOX height */
-  padding: 20px;          /* Space inside the box (between content and border) */
-  margin: 0px;           /* Space outside the box from button */
-  background-color: #a3a2a2; /* Background */
-  text-align: center;
-  color: rgb(0, 0, 0);
+  pointer-events: none;
 }
 </style>

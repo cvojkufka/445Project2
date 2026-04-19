@@ -40,6 +40,20 @@ defineProps({
   width: 100%;
 }
 
+.title {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  margin: 0;
+
+  color: white;
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+}
+
 .background {
   position: fixed;
   bottom: 0;
@@ -78,9 +92,13 @@ defineProps({
   top: 20px;
   left: 20px;
   right: 20px;
+
   margin: 0;
   text-align: left;
   line-height: 1.2;
-  font-size: 14px;
+  font-size: 25px;
+
+  color: black;
+  z-index: 3;
 }
 </style>
