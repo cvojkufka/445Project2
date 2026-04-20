@@ -21,7 +21,7 @@
   </div>
 
   <div class="card">
-    <img :src="getImagePath(item.image)" :alt="item.name" />
+    <img class :src="getImagePath(item.image)" :alt="item.name" />
     <div class="text">
         <p>Name: {{ item.name }}
         <br>Scientific Name: {{ item.scientific_name }}</br>
@@ -34,6 +34,7 @@
 <script setup>
 import Overlay from '../../overlay/Overlay.vue'
 import sign from '../../../assets/Sign.png'
+import info from '../../../assets/Info.png'
 
     defineProps ({
         goHome: Function,
@@ -109,29 +110,31 @@ const getImagePath = (fileName) => {
 .card {
   display: flex;
   align-items: stretch;
-  gap: 0px;
+  gap: 30px;
 
   position: absolute;
-  top: 320px;
-  left: 420px;
-  transform: scale(1.5);
+  top: 35%;
+  left: 32%;
+  transform: scale(1.2);
 }
 
 .text {
-  width: 300px;
-  height: 300px;
+  border-radius: 50px;
+  width: 350px;
+  height: 250px;
   padding: 20px;
-  background-color: #a3a2a2;
+  background-color: #02532c;
 
   display: flex;
   line-height: 1.4;
   text-align: left;
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
 }
 
 .card img {
-  height: 300px;
-  width: 300px;
+  border-radius: 500px;
+  height: 250px;
+  width: 250px;
   object-fit: cover;
 }
 </style>

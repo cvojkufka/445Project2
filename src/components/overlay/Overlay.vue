@@ -34,6 +34,7 @@ defineProps({
   left: 50%;
   transform: translateX(-50%);
   width: fit-content;
+  z-index: 2;
 }
 
 .header img {
