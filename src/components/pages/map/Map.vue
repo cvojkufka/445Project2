@@ -15,7 +15,20 @@
         <div class="main-layout">
             <div class="map-section">
                 <div class="map-layout">
-                    <img :src="map" :style="mapImageStyle" alt="Map">
+                    <div class="map-canvas" :style="mapImageStyle">
+                        <img :src="map" alt="Map">
+
+                        <button
+                            v-if="activeSite"
+                            type="button"
+                            class="site-marker"
+                            :style="markerStyle"
+                            @click="goSiteDetails(activeSite)"
+                        >
+                            <i class="fa fa-map-marker" aria-hidden="true" />
+                            <span class="marker-label">{{ activeSite.name }}</span>
+                        </button>
+                    </div>
                 </div>
 
                 <div class="zoom-actions" v-if="activeSiteId">
@@ -73,8 +86,8 @@ const sites = [
     id: 1,
     name: 'Treetop Outpost',
     image: site1,
-    focusX: 26,
-    focusY: 33,
+    focusX: 7,
+    focusY: 37,
     type: 'attraction',
     accessibility: ['Paved path access', 'Partial wheelchair access (varies by activity)'],
     amenities: ['Benches', 'Water fountain', 'Restroom nearby'],
@@ -84,8 +97,8 @@ const sites = [
     id: 2,
     name: 'The Junction',
     image: site2,
-    focusX: 55,
-    focusY: 30,
+    focusX: 8,
+    focusY: 56,
     type: 'facility',
     accessibility: ['Flat central hub', 'Wide walking paths'],
     amenities: ['Picnic tables', 'Shade structures', 'Directional signage'],
@@ -95,8 +108,8 @@ const sites = [
     id: 3,
     name: 'Prairietown',
     image: site3,
-    focusX: 32,
-    focusY: 65,
+    focusX: 25,
+    focusY: 49,
     type: 'historical',
     accessibility: ['Wheelchair accessible paths', 'Open walking space'],
     amenities: ['Food vendors', 'Restrooms', 'Seating areas'],
@@ -106,8 +119,8 @@ const sites = [
     id: 4,
     name: 'Promised Land as Proving Ground',
     image: site4,
-    focusX: 68,
-    focusY: 70,
+    focusX: 24,
+    focusY: 71,
     type: 'historical',
     accessibility: ['Mostly flat terrain', 'Grass + gravel paths'],
     amenities: ['Interpretive signage', 'Open space'],
@@ -117,8 +130,8 @@ const sites = [
     id: 5,
     name: 'William Conner House',
     image: site5,
-    focusX: 75,
-    focusY: 60,
+    focusX: 35,
+    focusY: 41,
     type: 'historical',
     accessibility: ['Limited wheelchair access (historic building)', 'Ramp access in select areas'],
     amenities: ['Guided tours', 'River views', 'Historic exhibits'],
@@ -128,8 +141,8 @@ const sites = [
     id: 6,
     name: 'Trails at Conner Prairie',
     image: site6,
-    focusX: 85,
-    focusY: 40,
+    focusX: 49,
+    focusY: 25,
     type: 'nature',
     accessibility: ['Natural surface trails', 'Not fully wheelchair accessible'],
     amenities: ['Nature trails', 'Scenic overlooks'],
@@ -139,8 +152,8 @@ const sites = [
     id: 7,
     name: 'Lenape Camp',
     image: site7,
-    focusX: 45,
-    focusY: 50,
+    focusX: 48,
+    focusY: 41,
     type: 'historical',
     accessibility: ['Grass paths', 'Some uneven terrain'],
     amenities: ['Interactive exhibits', 'Educational signage'],
@@ -150,8 +163,8 @@ const sites = [
     id: 8,
     name: 'Animal Encounters',
     image: site8,
-    focusX: 40,
-    focusY: 70,
+    focusX: 39,
+    focusY: 58,
     type: 'attraction',
     accessibility: ['Wide dirt paths', 'Generally wheelchair accessible'],
     amenities: ['Animal viewing areas', 'Handwashing stations'],
@@ -161,8 +174,8 @@ const sites = [
     id: 9,
     name: '1859 Balloon Voyage',
     image: site9,
-    focusX: 28,
-    focusY: 75,
+    focusX: 45,
+    focusY: 60,
     type: 'attraction',
     accessibility: ['Paved access to viewing area', 'Limited ride accessibility'],
     amenities: ['Viewing area', 'Open field space'],
@@ -172,8 +185,8 @@ const sites = [
     id: 10,
     name: 'Museum Experience Center',
     image: site10,
-    focusX: 60,
-    focusY: 20,
+    focusX: 47,
+    focusY: 77,
     type: 'facility',
     accessibility: ['Fully wheelchair accessible', 'Elevator access'],
     amenities: ['Restrooms', 'Gift shop', 'Indoor exhibits'],
@@ -182,24 +195,44 @@ const sites = [
 ]
 
 const activeSiteId = ref(null)
-const mapFocus = ref({ x: 50, y: 50 })
+const zoomScale = 2.2
 
-const mapImageStyle = computed(() => ({
-    transform: activeSiteId.value ? 'scale(2.2)' : 'scale(1)',
-    transformOrigin: `${mapFocus.value.x}% ${mapFocus.value.y}%`,
-}))
+const activeSite = computed(() => sites.find((site) => site.id === activeSiteId.value) ?? null)
+
+const clamp = (value, min, max) => Math.min(max, Math.max(min, value))
+
+const mapImageStyle = computed(() => {
+    if (!activeSite.value) {
+        return {
+            transform: 'translate(0%, 0%) scale(1)',
+        }
+    }
+
+    const tx = clamp(50 - (activeSite.value.focusX * zoomScale), (1 - zoomScale) * 100, 0)
+    const ty = clamp(50 - (activeSite.value.focusY * zoomScale), (1 - zoomScale) * 100, 0)
+
+    return {
+        transform: `translate(${tx}%, ${ty}%) scale(${zoomScale})`,
+    }
+})
+
+const markerStyle = computed(() => {
+    if (!activeSite.value) {
+        return {}
+    }
+
+    return {
+        left: `${activeSite.value.focusX}%`,
+        top: `${activeSite.value.focusY}%`,
+    }
+})
 
 const focusOnSite = (site) => {
     activeSiteId.value = site.id
-    mapFocus.value = {
-        x: site.focusX,
-        y: site.focusY,
-    }
 }
 
 const resetZoom = () => {
     activeSiteId.value = null
-    mapFocus.value = { x: 50, y: 50 }
 }
 
 defineProps({
@@ -348,6 +381,7 @@ defineProps({
 }
 
 .map-layout {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -360,12 +394,46 @@ defineProps({
     gap: 10px;
 }
 
+.map-canvas {
+    position: relative;
+    width: 100%;
+    transition: transform 0.45s ease;
+    transform-origin: top left;
+}
+
 .map-layout img {
     width: 100%;
     min-height: 55vh;
     max-height: 55vh;
     display: block;
-    transition: transform 0.45s ease;
+}
+
+.site-marker {
+    position: absolute;
+    transform: translate(-50%, -100%);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.site-marker .fa-map-marker {
+    color: #ff0000;
+    font-size: 20px;
+    line-height: 1;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.9);
+}
+
+.marker-label {
+    background-color: rgba(0, 0, 0, 0.75);
+    color: white;
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 999px;
+    white-space: nowrap;
 }
 
 /* right bar */
