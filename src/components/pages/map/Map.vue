@@ -45,7 +45,7 @@
         </div>
         <footer class="footer">
             <h3>Made by:</h3>
-            <h4>Christopher, Saa, Matteo, YF</h4>
+            <h4>Christopher, Saa, Matteo, Yahaya</h4>
             <p>© 2026 Conner Prairie</p>
         </footer>
     </div>
