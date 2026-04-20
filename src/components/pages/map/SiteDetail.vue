@@ -5,7 +5,7 @@
     </div>
 
     <div class="back-row">
-        <button type="button" @click="goMap">Back to Map</button>
+        <button type="button" @click="goMap">Back</button>
     </div>
 
     <div v-if="site" class="content">
@@ -14,6 +14,18 @@
         </div>
 
         <div class="right-details">
+
+            <div class="detail-group">
+                <div class="detail-title">
+                    <img :src="typeIcon" alt="Type of place icon" />
+                    <h3>Type</h3>
+                </div>
+                <p class = "type-text">
+                    <p>{{ site.type }}</p>
+                </p>
+        
+            </div>
+
             <div class="detail-group">
                 <div class="detail-title">
                     <img :src="accessibilityIcon" alt="Accessibility icon" />
@@ -52,6 +64,7 @@ import banner from '../../../assets/Banner.png'
 import accessibilityIcon from '../../../assets/accessibility.jpg'
 import amenitiesIcon from '../../../assets/amenities.webp'
 import nearbyIcon from '../../../assets/nearby.png'
+import typeIcon from '../../../assets/type.png'
 
 defineProps({
     site: Object,
@@ -99,10 +112,17 @@ defineProps({
     background-color: rgba(48, 132, 41, 1);
     color: white;
     padding: 0.5rem 1.4rem;
-    font-size: 1rem;
+    font-size: 1.2rem;
     cursor: pointer;
     position: relative;
     z-index: 3;
+    width: 125px;
+    height: 40px;
+}
+
+.back-row button:hover {
+    background-color: rgb(30, 100, 25);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
 }
 
 .content {
@@ -120,11 +140,14 @@ defineProps({
     height: auto;
     object-fit: cover;
     border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
 .right-details {
     border-radius: 12px;
     padding: 16px 20px;
+    background-color: rgba(48, 132, 41, 1);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
 .right-details h3 {

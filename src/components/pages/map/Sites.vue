@@ -21,45 +21,7 @@
 
 <script setup>
 import banner from '../../../assets/Banner.png'
-import site1 from '../../../assets/site1.jpeg'
-import site2 from '../../../assets/site2.jpg'
-import site3 from '../../../assets/site3.jpg'
-import site4 from '../../../assets/site4.jpg'
 
-const sites = [
-    {
-        id: 1,
-        name: 'site1',
-        image: site1,
-        accessibility: ['Wheelchair-friendly path', 'Accessible parking'],
-        amenities: ['Benches', 'Water fountain', 'Restroom nearby'],
-        nearbySites: ['site2', 'site3'],
-    },
-    {
-        id: 2,
-        name: 'site2',
-        image: site2,
-        accessibility: ['Flat trail entry', 'Handrail support points'],
-        amenities: ['Picnic tables', 'Shade area'],
-        nearbySites: ['site1', 'site4'],
-    },
-    {
-        id: 3,
-        name: 'site3',
-        image: site3,
-        accessibility: ['Low-slope approach', 'Wide viewing space'],
-        amenities: ['Bike rack', 'Information sign'],
-        nearbySites: ['site1', 'site4'],
-    },
-    {
-        id: 4,
-        name: 'site4',
-        image: site4,
-        accessibility: ['Step-free route', 'Accessible drop-off zone'],
-        amenities: ['Rest area', 'Trail map kiosk'],
-        nearbySites: ['site2', 'site3'],
-    },
-]
 
 defineProps({
     goMap: Function,
@@ -86,7 +48,7 @@ defineProps({
     top: 20%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: rgb(255, 255, 255);
+    color: white;
     font-size: 2rem;
     font-weight: bold;
 }
@@ -102,7 +64,6 @@ defineProps({
 
 .back-to-map button {
     border: none;
-    border-radius: 999px;
     background-color: rgba(48, 132, 41, 1);
     color: white;
     padding: 0.5rem 1.4rem;

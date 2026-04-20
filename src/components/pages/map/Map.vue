@@ -1,95 +1,184 @@
 <template>
-    <div class="header">
-        <img :src="banner" alt="bannerLogo" />
-        <h2 class="overlay-text">Map</h2>
-    </div>
-  
-    <div class="home">
-        <button @click="goHome">
-        <img :src="home" :alt="home">
-        </button>
-    </div>
+    <div class="page">
+        <div class="header">
+            <img :src="banner" alt="bannerLogo" />
+            <h2 class="title-overlay">Park Information</h2>
 
-    <div class="map-layout">
-        <div class="map-image-wrapper">
-            <img :src="map" :style="mapImageStyle" alt="Map">
+            <div class="back">
+                <button @click="goHome">
+                    <img :src="back" :alt="back">
+                    <div class="backbutton-overlay">Back</div>
+                </button>
+            </div>
         </div>
 
-        <div class="zoom-actions" v-if="activeSiteId">
-            <button type="button" @click="resetZoom">Reset zoom</button>
-        </div>
+        <div class="main-layout">
+            <div class="map-section">
+                <div class="map-layout">
+                    <img :src="map" :style="mapImageStyle" alt="Map">
+                </div>
 
-        <div class="sites-panel">
-            <h3>All Sites</h3>
+                <div class="zoom-actions" v-if="activeSiteId">
+                    <button @click="resetZoom">Reset Zoom</button>
+                </div>
+            </div>
 
-            <div class="sites-grid">
-                <div v-for="site in sites" :key="site.id" class="site-card">
-                    <button
-                        type="button"
-                        class="image-button"
-                        :class="{ active: activeSiteId === site.id }"
-                        @click="focusOnSite(site)"
-                    >
-                        <img :src="site.image" :alt="site.name" />
-                    </button>
-                    <button type="button" class="detail-button" @click="goSiteDetails(site)">
-                        {{ site.name }} details
-                    </button>
+            <div class="sites-panel">
+                <h3>All Sites</h3>
+
+                <div class="sites-grid">
+                    <div v-for="site in sites" :key="site.id" class="site-card">
+                        <button
+                            type="button"
+                            class="image-button"
+                            :class="{ active: activeSiteId === site.id }"
+                            @click="focusOnSite(site)"
+                        >
+                            <img :src="site.image" :alt="site.name" />
+                        </button>
+                        <button type="button" class="detail-button" @click="goSiteDetails(site)">
+                            {{ site.name }} details
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
+        <footer class="footer">
+            <h3>Made by:</h3>
+            <h4>Christopher, Saa, Matteo, YF</h4>
+            <p>© 2026 Conner Prairie</p>
+        </footer>
     </div>
 </template>
 
 <script setup>
 import { computed, ref } from 'vue'
 import banner from '../../../assets/Banner.png'
-import home from '../../../assets/Home.png'
+import back from '../../../assets/LeftArrow.png'
 import map from '../../../assets/ConnorPraireMap.png'
-import site1 from '../../../assets/NW.jpeg'
-import site2 from '../../../assets/NE.jpeg'
-import site3 from '../../../assets/SW.jpeg'
-import site4 from '../../../assets/SE.jpeg'
+import site1 from '../../../assets/TreetopOutpost.jpg'
+import site2 from '../../../assets/RedBridge.jpg'
+import site3 from '../../../assets/Prairietown.jpg'
+import site4 from '../../../assets/PromisedLand.webp'
+import site5 from '../../../assets/WilliamConnerHouse.jpg'
+import site6 from '../../../assets/Trails.webp'
+import site7 from '../../../assets/LenapeCamp.webp'
+import site8 from '../../../assets/Animals.jpg'
+import site9 from '../../../assets/BalloonRides.webp'
+import site10 from '../../../assets/Museum.webp'
+
 
 const sites = [
-    {
-        id: 1,
-        name: 'Northwest Corner',
-        image: site1,
-        focusX: 26,
-        focusY: 33,
-        accessibility: ['Wheelchair-friendly path', 'Accessible parking'],
-        amenities: ['Benches', 'Water fountain', 'Restroom nearby'],
-        nearbySites: ['William Conner House', 'Lenape Camp', 'Prairietown'],
-    },
-    {
-        id: 2,
-        name: 'Northeast Corner',
-        image: site2,
-        focusX: 64,
-        focusY: 34,
-        accessibility: ['Flat trail entry', 'Handrail support points'],
-        amenities: ['Picnic tables', 'Shade area'],
-    },
-    {
-        id: 3,
-        name: 'Southwest Corner',
-        image: site3,
-        focusX: 31,
-        focusY: 67,
-        accessibility: ['Low-slope approach', 'Wide viewing space'],
-        amenities: ['Bike rack', 'Information sign'],
-        nearbySites: ['Promised Land as Proving Ground', 'Muesuem Experience Center', '1859 Balloon Voyage', 'Animal Encounter'],
-    },
-    {
-        id: 4,
-        name: 'Southeast Corner',
-        image: site4,
-        focusX: 70,
-        focusY: 68,
-        accessibility: ['Step-free route', 'Accessible drop-off zone'],
-        amenities: ['Rest area', 'Trail map kiosk', 'Parking'],
-    },
+{
+    id: 1,
+    name: 'Treetop Outpost',
+    image: site1,
+    focusX: 26,
+    focusY: 33,
+    type: 'attraction',
+    accessibility: ['Paved path access', 'Partial wheelchair access (varies by activity)'],
+    amenities: ['Benches', 'Water fountain', 'Restroom nearby'],
+    nearbySites: ['Animal Encounters', 'Prairietown'],
+},
+{
+    id: 2,
+    name: 'The Junction',
+    image: site2,
+    focusX: 55,
+    focusY: 30,
+    type: 'facility',
+    accessibility: ['Flat central hub', 'Wide walking paths'],
+    amenities: ['Picnic tables', 'Shade structures', 'Directional signage'],
+    nearbySites: ['Prairietown', 'Museum Experience Center'],
+},
+{
+    id: 3,
+    name: 'Prairietown',
+    image: site3,
+    focusX: 32,
+    focusY: 65,
+    type: 'historical',
+    accessibility: ['Wheelchair accessible paths', 'Open walking space'],
+    amenities: ['Food vendors', 'Restrooms', 'Seating areas'],
+    nearbySites: ['Animal Encounters', '1859 Balloon Voyage', 'The Junction'],
+},
+{
+    id: 4,
+    name: 'Promised Land as Proving Ground',
+    image: site4,
+    focusX: 68,
+    focusY: 70,
+    type: 'historical',
+    accessibility: ['Mostly flat terrain', 'Grass + gravel paths'],
+    amenities: ['Interpretive signage', 'Open space'],
+    nearbySites: ['William Conner House', 'Trails at Conner Prairie'],
+},
+{
+    id: 5,
+    name: 'William Conner House',
+    image: site5,
+    focusX: 75,
+    focusY: 60,
+    type: 'historical',
+    accessibility: ['Limited wheelchair access (historic building)', 'Ramp access in select areas'],
+    amenities: ['Guided tours', 'River views', 'Historic exhibits'],
+    nearbySites: ['Promised Land as Proving Ground', 'White River'],
+},
+{
+    id: 6,
+    name: 'Trails at Conner Prairie',
+    image: site6,
+    focusX: 85,
+    focusY: 40,
+    type: 'nature',
+    accessibility: ['Natural surface trails', 'Not fully wheelchair accessible'],
+    amenities: ['Nature trails', 'Scenic overlooks'],
+    nearbySites: ['William Conner House'],
+},
+{
+    id: 7,
+    name: 'Lenape Camp',
+    image: site7,
+    focusX: 45,
+    focusY: 50,
+    type: 'historical',
+    accessibility: ['Grass paths', 'Some uneven terrain'],
+    amenities: ['Interactive exhibits', 'Educational signage'],
+    nearbySites: ['Prairietown', 'The Junction'],
+},
+{
+    id: 8,
+    name: 'Animal Encounters',
+    image: site8,
+    focusX: 40,
+    focusY: 70,
+    type: 'attraction',
+    accessibility: ['Wide dirt paths', 'Generally wheelchair accessible'],
+    amenities: ['Animal viewing areas', 'Handwashing stations'],
+    nearbySites: ['Prairietown', 'Treetop Outpost'],
+},
+{
+    id: 9,
+    name: '1859 Balloon Voyage',
+    image: site9,
+    focusX: 28,
+    focusY: 75,
+    type: 'attraction',
+    accessibility: ['Paved access to viewing area', 'Limited ride accessibility'],
+    amenities: ['Viewing area', 'Open field space'],
+    nearbySites: ['Prairietown'],
+},
+{
+    id: 10,
+    name: 'Museum Experience Center',
+    image: site10,
+    focusX: 60,
+    focusY: 20,
+    type: 'facility',
+    accessibility: ['Fully wheelchair accessible', 'Elevator access'],
+    amenities: ['Restrooms', 'Gift shop', 'Indoor exhibits'],
+    nearbySites: ['The Junction'],
+}
 ]
 
 const activeSiteId = ref(null)
@@ -121,21 +210,53 @@ defineProps({
 
 
 <style scoped>
+@font-face {
+    font-family: 'Marker';
+    src: url('../../../fonts/PermanentMarker-Regular.ttf') format('truetype');
+}
+.page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
 .header {
-    position: absolute;
+    position: relative;
     top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: min(70vw, 650px);
-}
-
-.header img {
+    left: 0;
     width: 100%;
+    background-color: #357A46;
+
+    display: flex;
+    justify-content: center;
+    padding-bottom: 40px;
+    margin-bottom: 15px;
 }
 
-.overlay-text {
+/* HEADER */
+.header img {
+    width: min(50vw, 650px);
+    display: block;
+}
+
+.header::after {
+    content: "";
     position: absolute;
-    top: 20%;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 18%;
+
+    background-image: url('../../../assets/Plank.png');
+    background-size: contain;
+    background-repeat: repeat-x;
+
+    pointer-events: none;
+}
+
+.title-overlay {
+    position: absolute;
+    top: 15%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: rgb(255, 255, 255);
@@ -143,80 +264,135 @@ defineProps({
     font-weight: bold;
 }
 
-.home {
+/* backbutton */
+.backbutton-overlay {
+    position: absolute;
+    top: 25%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    color: orange;
+    font-family: 'Marker';
+    font-size: 2rem;
+    font-weight: bold;
+    text-shadow:
+        -1px -1px 0 black,
+         1px -1px 0 black,
+        -1px  1px 0 black,
+         1px  1px 0 black;
+}
+
+.back {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    background: none;
+}
+
+.back button {
+    all: unset;
+    cursor: pointer;
     display: flex;
     align-items: center;
-    height: 100px;
-    width: 100px;
-    border-radius: 100px;
-    border: 2px solid black;
-    background: white;
-    overflow: hidden;
-    cursor: pointer;
     justify-content: center;
-    top: 50px;
-    left: 150px;
-    position: absolute;
-}
 
-.home img {
     width: 100%;
-    height: auto;
-    object-fit: cover;
-    transform: scale(1.7);
+    height: 100%;
 }
 
-.map-image-wrapper {
+.backbutton-overlay:hover {
+    text-shadow: 0 0 3px yellow;
+    font-size: 35px;
+}
+
+.back img {
+    width: 100px;
+    height: 100px;
+}
+
+/* BODY */
+.main-layout {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    padding: 0px 30px 30px 0x;
+    overflow: hidden;
+    flex: 1;
+}
+
+/* zoom button */
+.zoom-actions button {
+    width: 140px;
+    height: 40px;
+    font-size: 16px;
+    background-color: #8B4E2E;
+    color: white;
+    border-radius: 99px;
+    cursor: pointer;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    border: 1px solid;
+    border-color: #FFC300;
+}
+
+.zoom-actions button:hover {
+    background-color: #5A3218;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+}
+
+/* map */
+.map-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.map-layout {
     display: flex;
     justify-content: center;
     align-items: flex-start;
     width: min(90vw, 850px);
     overflow: hidden;
-    border-radius: 14px;
+    border-radius: 15px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    border: 5px solid;
+    border-color: #FFC300;
+    gap: 10px;
 }
 
-.map-image-wrapper img {
+.map-layout img {
     width: 100%;
-    height: auto;
+    min-height: 55vh;
+    max-height: 55vh;
     display: block;
     transition: transform 0.45s ease;
 }
 
-.map-layout {
-    margin-top: 220px;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 40px;
-    padding: 0 30px 30px;
-}
-
-.zoom-actions {
-    position: absolute;
-    top: 190px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.zoom-actions button {
-    border: none;
-    border-radius: 999px;
-    padding: 0.45rem 1rem;
-    cursor: pointer;
-    background: #ffffff;
-}
-
+/* right bar */
 .sites-panel {
-    width: min(42vw, 520px);
-    border-radius: 16px;
+    min-width: 415px;
+    max-width: 415px;
+    height: 100%;
+    overflow-y: auto;
+    border-radius: 15px;
     padding: 18px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    border: 5px solid;
+    border-color: #FFC300;
+    background-color: rgba(48, 132, 41, 1);
+    max-height: 56.1vh;
 }
 
 .sites-panel h3 {
-    margin: 0 0 16px;
+    margin: 8px 0px 15px;
     text-align: center;
     font-size: 1.5rem;
+    background-color: #8B4E2E;
+    border-radius: 9px;
+    box-shadow: 0 0 15px rgba(48, 132, 41, 0.99);
+    border: 3.5px solid;
+    border-color: #FFC300;
+    padding: 3px;
 }
 
 .sites-grid {
@@ -253,13 +429,43 @@ defineProps({
 
 .detail-button {
     margin-top: 10px;
-    font-size: 1rem;
-    border: none;
-    background-color: rgba(48, 132, 41, 1);
+    font-size: 16px;
+    background-color: #8B4E2E;
     color: white;
     padding: 0.5rem 1rem;
-    border-radius: 999px;
+    border-radius: 99px;
     cursor: pointer;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    border: 1px solid;
+    border-color: #FFC300;
 }
 
+.detail-button:hover {
+    background-color: #5A3218;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+}
+
+/* FOOTER */
+.footer {
+    background-color: #8B4E2E;
+    padding: 0px 0px 0px 15px;
+    text-align: left;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    line-height: 0.1;
+}
+
+.footer h3 {
+    font-size: 20px;
+    margin-bottom: 0px;
+    color: #5c2f1a;
+}
+.footer h4 {
+    font-size: 14px;
+    color: hsl(29, 66%, 46%);
+}
+.footer p {
+    margin-top: 30px;
+}
 </style>
