@@ -42,7 +42,7 @@ defineProps ({
 .left-sign,
 .right-sign {
   position: absolute;
-  top: 15%;
+  top: 35%;
   background: none;
   border: none;
   padding: 0;
