@@ -351,7 +351,7 @@ defineProps({
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    width: min(90vw, 850px);
+    
     overflow: hidden;
     border-radius: 15px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
@@ -454,6 +454,7 @@ defineProps({
     display: flex;
     flex-direction: column;
     line-height: 0.1;
+    margin-top: 15px;
 }
 
 .footer h3 {
