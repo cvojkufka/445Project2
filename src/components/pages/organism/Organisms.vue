@@ -13,24 +13,26 @@
     </button>
   </div>
 
-  <div class="buttons">
-    <button
-      v-for="item in visibleOrganisms"
-      :key="item.id"
-      @click="goLearn(item)"
-      type="button"
-      class="organism-button"
-    >
-      <img :src="getImagePath(item.image)" :alt="item.name" />
-      <div class="name-box">
-        <p>{{ item.name }}</p>
-      </div>
-    </button>
+  <div class="scroll-wrapper">
+    <div class="buttons" ref="scrollContainer" @wheel.prevent="handleWheel">
+      <button
+        v-for="item in data"
+        :key="item.id"
+        type="button"
+        class="organism-button"
+        @click="goLearn(item)"
+      >
+        <img :src="getImagePath(item.image)" :alt="item.name" />
+        <div class="name-box">
+          <p>{{ item.name }}</p>
+        </div>
+      </button>
+    </div>
   </div>
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
 import data from '../../data/plantsAtCP.json'
 import sign from '../../../assets/Sign.png'
 import Overlay from '../../overlay/Overlay.vue'
@@ -40,11 +42,13 @@ defineProps({
   goLearn: Function
 })
 
-const startIndex = ref(0)
+const scrollContainer = ref(null)
 
-const visibleOrganisms = computed(() => {
-  return data.slice(startIndex.value, startIndex.value + 3)
-})
+const handleWheel = (event) => {
+  if (scrollContainer.value) {
+    scrollContainer.value.scrollLeft += event.deltaY
+  }
+}
 
 const getImagePath = (fileName) => {
   return new URL(`../../../images/${fileName}`, import.meta.url).href
@@ -97,20 +101,33 @@ const getImagePath = (fileName) => {
   white-space: nowrap;
 }
 
-/*Organism Buttons*/
-.buttons {
+.scroll-wrapper {
   position: absolute;
   top: 280px;
   left: 50%;
   transform: translateX(-50%);
-  display: flex;
-  justify-content: center;
-  gap: 60px;
-  width: 100%;
+  width: 90%;
+  overflow: hidden;
   z-index: 5;
 }
 
+.buttons {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 60px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 20px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.buttons::-webkit-scrollbar {
+  display: none;
+}
+
 .organism-button {
+  flex: 0 0 auto;
   background: none;
   border: none;
   cursor: pointer;
@@ -130,8 +147,10 @@ const getImagePath = (fileName) => {
 }
 
 .name-box p {
+  margin: 0;
   color: white;
   font-size: 20px;
   font-weight: bold;
+  text-align: center;
 }
 </style>
