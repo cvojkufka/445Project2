@@ -1,62 +1,50 @@
 <template>
-  <div class="header">
-    <img :src="banner" alt="bannerLogo" />
-    <h2 class="overlay-text">Organisms!</h2>
-  </div>
+  <Overlay 
+    title="Organisms!"
+    speechText="Look at all those organisms! Try clicking one!"
+  />
 
-  <div class="home">
-    <button @click="goHome">
-      <img :src="home" :alt="home">
+  <div class="switch">
+    <button class="home-sign" @click="goHome">
+      <div class="sign-wrapper">
+        <img :src="sign" alt="home-sign" />
+        <span class="sign-text">Home</span>
+      </div>
     </button>
   </div>
 
-  <div class="search-container">
-    <input 
-      v-model="searchQuery"
-      type="text"
-      placeholder="Search for an organism..."
-      class="search-input"
-    />
+  <div class="buttons">
+    <button
+      v-for="item in visibleOrganisms"
+      :key="item.id"
+      @click="goLearn(item)"
+      type="button"
+      class="organism-button"
+    >
+      <img :src="getImagePath(item.image)" :alt="item.name" />
+      <div class="name-box">
+        <p>{{ item.name }}</p>
+      </div>
+    </button>
   </div>
-
-    <div class="buttons">
-      <button @click="goLearn(item)"
-        v-for="item in filteredData"
-        :key="item.id"
-        type="button"
-        class="organism-button"
-      >
-        <img :src="getImagePath(item.image)" :alt="item.name" />
-        <div class="name-box">
-          <p>{{ item.name }}</p>
-        </div>
-      </button>
-    </div>
 </template>
 
 <script setup>
 import { ref, computed } from 'vue'
 import data from '../../data/plantsAtCP.json'
-import banner from '../../../assets/Banner.png'
-import home from '../../../assets/Home.png'
+import sign from '../../../assets/Sign.png'
+import Overlay from '../../overlay/Overlay.vue'
 
 defineProps({
   goHome: Function,
   goLearn: Function
 })
 
-const searchQuery = ref('')
+const startIndex = ref(0)
 
-const filteredData = computed(() => {
-  if (!searchQuery.value) return data
-
-  return data.filter(item =>
-    item.type.toLowerCase().includes(searchQuery.value.toLowerCase())||
-    item.name.toLowerCase().includes(searchQuery.value.toLowerCase())||
-    item.description.toLowerCase().includes(searchQuery.value.toLowerCase())
-  )
+const visibleOrganisms = computed(() => {
+  return data.slice(startIndex.value, startIndex.value + 3)
 })
-
 
 const getImagePath = (fileName) => {
   return new URL(`../../../images/${fileName}`, import.meta.url).href
@@ -64,63 +52,62 @@ const getImagePath = (fileName) => {
 </script>
 
 <style scoped>
-/*Banner*/
-.header { 
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: fit-content;
-}
-
-.header img {
+.switch {
+  position: relative;
   width: 100%;
+  z-index: 10;
 }
 
-.overlay-text {
+.home-sign {
   position: absolute;
-  top: 20%;
+  top: 50px;
+  left: 20px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  line-height: 0;
+  display: block;
+  width: 420px;
+  height: auto;
+}
+
+.sign-wrapper {
+  position: relative;
+  display: block;
+  width: 420px;
+}
+
+.sign-wrapper img {
+  width: 420px;
+  display: block;
+}
+
+.sign-text {
+  position: absolute;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: rgb(255, 255, 255);
-  font-size: 2rem;
+  color: white;
+  font-size: 22px;
   font-weight: bold;
-}
-
-/*Home Button*/
-.home {
-  display: flex;
-  align-items: center;
-
-  height: 100px;
-  width: 100px;
-
-  border-radius: 100px;
-  border: 2px solid black;
-  background: white;
-
-  overflow: hidden;
-  cursor: pointer;
-  justify-content: center;
-  top: 50px;
-  left: 150px;
-  position: absolute;
-}
-
-.home img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  transform: scale(1.7);
+  text-align: center;
+  pointer-events: none;
+  white-space: nowrap;
 }
 
 /*Organism Buttons*/
 .buttons {
-  padding: 100px;
+  position: absolute;
+  top: 280px;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   justify-content: center;
-  gap: 30px;
-  flex-wrap: wrap;
+  gap: 60px;
+  width: 100%;
+  z-index: 5;
 }
 
 .organism-button {
@@ -131,44 +118,20 @@ const getImagePath = (fileName) => {
 }
 
 .organism-button img {
-  width: 200px;
-  height: 200px;
+  width: 220px;
+  height: 220px;
   object-fit: cover;
+  border-radius: 500px;
   display: block;
 }
 
 .name-box {
-  width: 200px;
-  background-color: #a3a2a2;
-  padding: 12px;
-  margin-top: 0;
-  text-align: center;
-  color: rgb(0, 0, 0);
-  font-size: 22px;
+  margin-top: 12px;
 }
 
-/*Search Bar*/
-.search-container {
-  margin-top: 200px;
-  display: flex;
-  justify-content: center;
-}
-
-.search-input {
-  width: 300px;
-  padding: 12px 16px;
-  border-radius: 25px;
-  border: 1px solid #ccc;
-  outline: none;
-  font-size: 16px;
-  
-
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  transition: 0.2s ease;
-}
-
-.search-input:focus {
-  border-color: #4CAF50;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+.name-box p {
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
 }
 </style>
