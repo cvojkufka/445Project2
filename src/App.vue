@@ -20,30 +20,34 @@
 
    <Learn 
    v-else-if="currentPage === 'learn'"
-   :item="selectedItem"
+   :item="currentItem"
    :goHome="goHome"
-  :goOrganisms="goOrganisms"
+   :goOrganisms="goOrganisms"
+   :prevItem="prevItem"
+   :nextItem="nextItem"
    />
 
     <SiteDetail
     v-else-if="currentPage === 'site-detail'"
     :site="selectedSite"
-   :goMap="goMap"
+    :goMap="goMap"
    />
 
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import Home from './components/Home.vue'
 import Organisms from './components/pages/organism/Organisms.vue'
 import Learn from './components/pages/organism/Learn.vue'
 import Map from './components/pages/map/Map.vue'
 import SiteDetail from './components/pages/map/SiteDetail.vue'
+import data from './components/data/plantsAtCP.json'
 
 const currentPage = ref('home')
-const selectedItem = ref(null)
 const selectedSite = ref(null)
+const currentIndex = ref(0)
+const currentItem = computed(() => data[currentIndex.value])
 
 const goHome = () => {
   currentPage.value = 'home'
@@ -58,13 +62,21 @@ const goMap = () => {
 }
 
 const goLearn = (item) => {
-  selectedItem.value = item
+  currentIndex.value = data.findIndex(organism => organism.id === item.id)
   currentPage.value = 'learn'
 }
 
 const goSiteDetails = (site) => {
   selectedSite.value = site
   currentPage.value = 'site-detail'
+}
+
+const prevItem = () => {
+  currentIndex.value = (currentIndex.value - 1 + data.length) % data.length
+}
+
+const nextItem = () => {
+  currentIndex.value = (currentIndex.value + 1) % data.length
 }
 
 </script>

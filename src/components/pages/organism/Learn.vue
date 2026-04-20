@@ -29,17 +29,30 @@
         </p>
     </div>
   </div>
+
+  <div class="traverse">
+    <button class="left-button" @click="prevItem">
+      <img :src="arrow" alt="left">
+    </button>
+
+    <button class="right-button" @click="nextItem">
+      <img :src="arrow" alt="right">
+    </button>
+  </div>
 </template>
 
 <script setup>
 import Overlay from '../../overlay/Overlay.vue'
 import sign from '../../../assets/Sign.png'
 import info from '../../../assets/Info.png'
+import arrow from '../../../assets/Arrow.png'
 
     defineProps ({
         goHome: Function,
         goOrganisms: Function,
-        item: Object
+        item: Object,
+        prevItem: Function,
+        nextItem: Function
     })
 
 const getImagePath = (fileName) => {
