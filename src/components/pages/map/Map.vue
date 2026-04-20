@@ -450,7 +450,7 @@ defineProps({
     background-color: #8B4E2E;
     padding: 0px 0px 0px 15px;
     text-align: left;
-    height: 120px;
+    height: 80px;
     display: flex;
     flex-direction: column;
     line-height: 0.1;
@@ -464,9 +464,10 @@ defineProps({
 }
 .footer h4 {
     font-size: 14px;
+    margin-bottom: 3px;
     color: hsl(29, 66%, 46%);
 }
 .footer p {
-    margin-top: 30px;
+    margin-bottom: 10px;
 }
 </style>
