@@ -220,6 +220,7 @@ defineProps({
     flex-direction: column;
 }
 
+/* HEADER */
 .header {
     position: relative;
     top: 0;
@@ -229,13 +230,12 @@ defineProps({
 
     display: flex;
     justify-content: center;
-    padding-bottom: 40px;
+    padding-bottom: 30px;
     margin-bottom: 15px;
 }
 
-/* HEADER */
 .header img {
-    width: min(50vw, 650px);
+    width: 600px;
     display: block;
 }
 
