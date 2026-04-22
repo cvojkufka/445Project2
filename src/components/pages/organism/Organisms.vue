@@ -1,7 +1,7 @@
 <template>
   <Overlay 
     title="Organisms!"
-    speechText="Look at all those organisms! Try clicking one!"
+    speechText="Look at all those organisms around you! Try clicking one!"
   />
 
   <div class="switch">
