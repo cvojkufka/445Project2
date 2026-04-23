@@ -231,6 +231,9 @@ defineProps({
     border-radius: 15px;
     padding: 6px 2px 10px 15px;
     margin-bottom: 15px;
+
+    border: 2px solid;
+    border-color: #FFC300;
 }
 
 .detail-title {
