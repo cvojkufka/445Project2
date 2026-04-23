@@ -57,23 +57,22 @@ defineProps ({
   right: 15%;
 }
 
-.left-sign img,
-.right-sign img {
-  width: 420px;
-}
-
 .right-sign img {
   transform: scaleX(-1);
 }
 
+.left-sign img,
+.right-sign img,
+.sign-wrapper img {
+  width: min(30vw, 420px);
+}
 .sign-wrapper {
   position: relative;
   display: inline-block;
 }
 
-.sign-wrapper img {
-  width: 420px;
-  display: block;
+.sign-wrapper:hover {
+  transform: scale(1.1);
 }
 
 

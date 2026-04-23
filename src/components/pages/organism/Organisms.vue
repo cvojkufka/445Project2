@@ -68,25 +68,23 @@ const getImagePath = (fileName) => {
   left: 20px;
   background: transparent;
   border: none;
-  padding: 0;
-  margin: 0;
   cursor: pointer;
-  line-height: 0;
-  display: block;
-  width: 420px;
-  height: auto;
 }
 
 .sign-wrapper {
   position: relative;
-  display: block;
-  width: 420px;
+  display: inline-block;
 }
 
 .sign-wrapper img {
-  width: 420px;
+  width: clamp(120px, 20vw, 400px);
   display: block;
 }
+
+.sign-wrapper:hover {
+  transform: scale(1.1);
+}
+
 
 .sign-text {
   position: absolute;
@@ -94,7 +92,7 @@ const getImagePath = (fileName) => {
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
-  font-size: 22px;
+  font-size: clamp(12px, 1.6vw, 22px);
   font-weight: bold;
   text-align: center;
   pointer-events: none;
@@ -103,7 +101,7 @@ const getImagePath = (fileName) => {
 
 .scroll-wrapper {
   position: absolute;
-  top: 280px;
+  top: 230px;
   left: 50%;
   transform: translateX(-50%);
   width: 90%;
@@ -120,6 +118,10 @@ const getImagePath = (fileName) => {
   padding: 20px;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  background-color: #8B4E2E;
+  border-radius: 15px;
+  border: 4px solid;
+  border-color: #FFC300;
 }
 
 .buttons::-webkit-scrollbar {
@@ -142,8 +144,22 @@ const getImagePath = (fileName) => {
   display: block;
 }
 
+.organism-button img:hover {
+  box-shadow: 
+    0 0 10px rgba(255, 195, 0, 0.6),
+    0 0 20px rgba(255, 195, 0, 0.5),
+    0 0 40px rgba(255, 195, 0, 0.4);
+}
+
+
 .name-box {
-  margin-top: 12px;
+  margin-top: 15px;
+  background-color: rgba(48, 132, 41, 1);
+  border-radius: 15px;
+  padding: 7px;
+
+  border: 1px solid;
+  border-color: #FFC300;
 }
 
 .name-box p {
