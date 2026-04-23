@@ -18,16 +18,15 @@
             </div>
 
             <div class="right-details">
-
                 <div class="detail-group">
                     <div class="detail-title">
                         <img :src="typeIcon" alt="Type of place icon" />
                         <h3>Type</h3>
                     </div>
+
                     <p class = "type-text">
                         <p>{{ site.type }}</p>
                     </p>
-            
                 </div>
 
                 <div class="detail-group">
@@ -191,12 +190,11 @@ defineProps({
 
 /*left side*/
 .left-image img {
-    width: 100%;
+    width: 700px;
     max-width: 700px;
-    max-height: 420px;
-    min-height: 420px;
-    min-width: 700px;
-    height: auto;
+
+    max-height: 450px;
+    min-height: 450px;
     object-fit: cover;
 
     overflow: hidden;
@@ -210,9 +208,9 @@ defineProps({
 
 /* right side */
 .right-details {
-    min-width: 400px;
-    min-height: 420px;
-    max-height: 420px;
+    width: 400px;
+    min-height: 450px;
+    max-height: 450px;
     border-radius: 15px;
     padding: 16px 20px;
     background-color: #8B4E2E;
@@ -220,6 +218,8 @@ defineProps({
 
     border: 5px solid;
     border-color: #FFC300;
+
+    overflow-y: auto;
 }
 
 .right-details h3 {
@@ -227,10 +227,10 @@ defineProps({
 }
 
 .detail-group {
-    margin-bottom: 0px;
     background-color: rgba(48, 132, 41, 1);
     border-radius: 15px;
-    padding: 5px 0px 0px 10px;
+    padding: 6px 2px 10px 15px;
+    margin-bottom: 15px;
 }
 
 .detail-title {
@@ -252,7 +252,7 @@ defineProps({
 }
 
 .right-details ul {
-    margin: 0 0 16px;
+    margin: 0 0 0px;
     padding-left: 20px;
 }
 
