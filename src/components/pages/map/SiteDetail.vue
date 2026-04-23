@@ -15,15 +15,13 @@
 
         <div class="right-details">
 
-            <div class="detail-group">
+            <div v-if="site.includes?.length" class="detail-group">
                 <div class="detail-title">
-                    <img :src="typeIcon" alt="Type of place icon" />
-                    <h3>Type</h3>
+                    <h3>What's Here</h3>
                 </div>
-                <p class = "type-text">
-                    <p>{{ site.type }}</p>
-                </p>
-        
+                <ul>
+                    <li v-for="item in site.includes" :key="`include-${item}`">{{ item }}</li>
+                </ul>
             </div>
 
             <div class="detail-group">
@@ -48,8 +46,8 @@
 
             <div class="detail-group">
                 <div class="detail-title">
-                    <img :src="nearbyIcon" alt="Nearby sites icon" />
-                    <h3>Nearby Sites</h3>
+                    <img :src="nearbyIcon" alt="Nearby areas icon" />
+                    <h3>Nearby Areas</h3>
                 </div>
                 <ul>
                     <li v-for="item in site.nearbySites" :key="`near-${item}`">{{ item }}</li>
@@ -64,7 +62,6 @@ import banner from '../../../assets/Banner.png'
 import accessibilityIcon from '../../../assets/accessibility.jpg'
 import amenitiesIcon from '../../../assets/amenities.webp'
 import nearbyIcon from '../../../assets/nearby.png'
-import typeIcon from '../../../assets/type.png'
 
 defineProps({
     site: Object,

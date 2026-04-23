@@ -91,7 +91,8 @@ const sites = [
     type: 'attraction',
     accessibility: ['Paved path access', 'Partial wheelchair access (varies by activity)'],
     amenities: ['Benches', 'Water fountain', 'Restroom nearby'],
-    nearbySites: ['Animal Encounters', 'Prairietown'],
+    includes: ['27. Nature Amphitheater', '28. River Lookout', '29. Treehouse', '30. Fort Hoosier', '31. Prairie Overlook'],
+    nearbySites: ['Prairietown','The Junction'],
 },
 {
     id: 2,
@@ -102,18 +103,20 @@ const sites = [
     type: 'facility',
     accessibility: ['Flat central hub', 'Wide walking paths'],
     amenities: ['Picnic tables', 'Shade structures', 'Directional signage'],
-    nearbySites: ['Prairietown', 'Museum Experience Center'],
+    includes: ['32. River Crossing - Open Seasonally', '33. Discovery Station'],
+    nearbySites: ['Treetop Outpost', 'Prairietown', 'Promised Land as Proving Ground'],
 },
 {
     id: 3,
-    name: 'Prairietown',
+    name: 'Prairietown Est. 1836',
     image: site3,
     focusX: 25,
     focusY: 49,
     type: 'historical',
     accessibility: ['Wheelchair accessible paths', 'Open walking space'],
     amenities: ['Food vendors', 'Restrooms', 'Seating areas'],
-    nearbySites: ['Animal Encounters', '1859 Balloon Voyage', 'The Junction'],
+    includes: ['13. Blacksmith Shop', "14. Curtis' Home", "15. Whitaker's Store", '16. Schoolhouse', "17. Dr. Campbell's Office & Home", '18. Turners home', "19. McClure's Home", '20. Carpenter Shop', "21. Baker Brother's Pottery Shop", '22. Golden Eagle Inn'],
+    nearbySites: ['Treetop Outpost', 'The Junction', 'Animal Encounters','Promised Land as Proving Ground',  'William Conner House'],
 },
 {
     id: 4,
@@ -124,7 +127,8 @@ const sites = [
     type: 'historical',
     accessibility: ['Mostly flat terrain', 'Grass + gravel paths'],
     amenities: ['Interpretive signage', 'Open space'],
-    nearbySites: ['William Conner House', 'Trails at Conner Prairie'],
+    includes: ['23. Origins Cabin', '24. Resistance Cabin', '25. Reclamation Building', '26. Reflections Cabin'],
+    nearbySites: ['The Junction', 'Prairietown', 'Animal Encounters', '1859 Balloon Voyage', 'Museum Experience Center'],
 },
 {
     id: 5,
@@ -135,7 +139,8 @@ const sites = [
     type: 'historical',
     accessibility: ['Limited wheelchair access (historic building)', 'Ramp access in select areas'],
     amenities: ['Guided tours', 'River views', 'Historic exhibits'],
-    nearbySites: ['Promised Land as Proving Ground', 'White River'],
+    includes: ['9. William Conner House (1st Floor Accessible)', '10. Spring House', '11. Loom House', '12. Heirloom Garden'],
+    nearbySites: ['Prairietown', 'Animal Encounters', 'Trails at Conner Prairie', 'Lenape Camp'],
 },
 {
     id: 6,
@@ -146,7 +151,8 @@ const sites = [
     type: 'nature',
     accessibility: ['Natural surface trails', 'Not fully wheelchair accessible'],
     amenities: ['Nature trails', 'Scenic overlooks'],
-    nearbySites: ['William Conner House'],
+    includes: ['34. R.B Annis Vista Trail (Rugged)', '35. Prairie Trail (Paved)'],
+    nearbySites: ['Lenape Camp', 'William Conner House'],
 },
 {
     id: 7,
@@ -157,7 +163,8 @@ const sites = [
     type: 'historical',
     accessibility: ['Grass paths', 'Some uneven terrain'],
     amenities: ['Interactive exhibits', 'Educational signage'],
-    nearbySites: ['Prairietown', 'The Junction'],
+    includes: ['5. Trading Post', '6. Bark House', '7. Lifeways Cabin'],
+    nearbySites: ['Trails at Conner Prairie', 'William Conner House', 'Animal Encounters', '1859 Balloon Voyage'],
 },
 {
     id: 8,
@@ -168,7 +175,8 @@ const sites = [
     type: 'attraction',
     accessibility: ['Wide dirt paths', 'Generally wheelchair accessible'],
     amenities: ['Animal viewing areas', 'Handwashing stations'],
-    nearbySites: ['Prairietown', 'Treetop Outpost'],
+    includes: ['8. Animal Encounters'],
+    nearbySites: ['1859 Balloon Voyage', 'Promised Land as Proving Ground', 'Museum Experience Center'],
 },
 {
     id: 9,
@@ -179,7 +187,8 @@ const sites = [
     type: 'attraction',
     accessibility: ['Paved access to viewing area', 'Limited ride accessibility'],
     amenities: ['Viewing area', 'Open field space'],
-    nearbySites: ['Prairietown'],
+    includes: ['1. Balloon Kiosk', '2. 1859 Balloon Voyage Exhibit', '3. Cafe of the Common', '4. 1859 Balloon Voyage Ride'],
+    nearbySites: ['Museum Experience Center', 'Animal Encounters', 'William Conner House', 'Lenape Camp'],
 },
 {
     id: 10,
@@ -190,7 +199,8 @@ const sites = [
     type: 'facility',
     accessibility: ['Fully wheelchair accessible', 'Elevator access'],
     amenities: ['Restrooms', 'Gift shop', 'Indoor exhibits'],
-    nearbySites: ['The Junction'],
+    includes: [],
+    nearbySites: ['Promised Land as Proving Ground', 'Animal Encounters', '1859 Balloon Voyage'],
 }
 ]
 
