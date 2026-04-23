@@ -101,7 +101,7 @@ const getImagePath = (fileName) => {
 
 .scroll-wrapper {
   position: absolute;
-  top: 230px;
+  top: 30%;
   left: 50%;
   transform: translateX(-50%);
   width: 90%;
