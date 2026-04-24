@@ -18,15 +18,14 @@
             </div>
 
             <div class="right-details">
-                <div class="detail-group">
+                <div v-if="site.includes?.length" class="detail-group">
                     <div class="detail-title">
-                        <img :src="typeIcon" alt="Type of place icon" />
-                        <h3>Type</h3>
+                        <img :src="typeIcon" alt="What's here icon" />
+                        <h3>What's Here</h3>
                     </div>
-
-                    <p class = "type-text">
-                        <p>{{ site.type }}</p>
-                    </p>
+                    <ul>
+                        <li v-for="item in site.includes" :key="`include-${item}`">{{ item }}</li>
+                    </ul>
                 </div>
 
                 <div class="detail-group">
